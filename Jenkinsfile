@@ -31,7 +31,7 @@ pipeline{
         }
              stage('Build and Push Docker Image'){
             environment{
-                DOCKER_IMAGE = "kunal508/jenkinsPipeline-maven-web-application:${BUILD_NUMBER}"
+                DOCKER_IMAGE = "kunal508/jenkinspipeline-maven-web-application:${BUILD_NUMBER}"
                 REGISTRY_CREDENTIALS = credentials('docker-cred')
             }
             steps{
