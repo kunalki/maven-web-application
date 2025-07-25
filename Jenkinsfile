@@ -2,7 +2,7 @@ pipeline{
     agent{
         docker{
             image 'kunal508/maven:3.9.6-eclipse-temurin-17-docker-cli-1'
-            args '-u 111:113 -v /var/run/docker.sock:/var/run/docker.sock'
+            args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
         }
             }
     stages{
