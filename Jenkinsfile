@@ -16,7 +16,7 @@ pipeline{
             steps{
                 sh 'ls -ltr'
                 // build the project and create a JAR file
-                sh 'cd maven-web-application && mvn clean package'
+                sh 'mvn clean package'
             }
         }
         stage('Static code analysis'){
@@ -25,7 +25,7 @@ pipeline{
             }
             steps{
                 withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_TOKEN')]) {
-                  sh 'cd maven-web-application && mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=${SONAR_URL}'
+                  sh 'mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=${SONAR_URL}'
 }
             }
         }
